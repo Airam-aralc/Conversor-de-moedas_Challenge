@@ -1,33 +1,75 @@
+import java.lang.classfile.instruction.SwitchCase;
 import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);
         Conversor conversor = new Conversor();
+        int opcao = 0;
 
-        System.out.println("******************************************");
-        System.out.println("Bem-vindo ao Conversor de Moedas!");
-        System.out.println("Exemplo: Converter de USD para BRL");
+        String menu = """
+                \nBEM-VINDO(A) AO CONVERSOR DE MOEDAS!
+                
+                1) Dólar (USD)      -> Real (BRL)
+                2) Real (BRL)       -> Dólar (USD)
+                3) Euro (EUR)       -> Real (BRL)
+                4) Iene (JPY)       -> Real (BRL)
+                5) Boliviano (BOB)  -> Real (BRL)
+                6) Bolívar (VES)    -> Real (BRL)
+                7) SAIR
+                
+                ESCOLHA UMA DAS OPÇÕES:
+                """;
 
-        System.out.println("Digite a moeda de origem (ex: USD):");
-        String moeda1 = leitura.next().toUpperCase();
+        while(opcao != 7) {
+            System.out.println(menu);
 
-        System.out.println("Digite a moeda de destino (ex: BRL):");
-        String moeda2 = leitura.next().toUpperCase();
+            opcao = leitura.nextInt();
 
-        System.out.println("Qual valor deseja converter?");
-        double valor = leitura.nextDouble();
+            if (opcao >= 1 && opcao <= 6) {
+                System.out.println("Digite o a valor que quer converter: ");
+                double valor = leitura.nextDouble();
 
-        try {
-            double taxa = conversor.buscarConversao(moeda1, moeda2);
-            double resultado = valor * taxa;
+                //Inicialização de variáveis, preparação das "caixas" para o switch
+                String de = "";
+                String para = "";
 
-            System.out.printf("A taxa atual de %s para %s é: %.4f%n", moeda1, moeda2, taxa);
-            System.out.printf("Valor convertido: %.2f %s%n", resultado, moeda2);
-        } catch (Exception e) {
-            System.out.println("Erro: " + e.getMessage());
+                switch (opcao) {
+                    case 1:
+                        de = "USD"; para = "BRL";
+                        break;
+                    case 2:
+                        de = "BRL"; para = "USD";
+                        break;
+                    case 3:
+                        de = "EUR"; para = "BRL";
+                        break;
+                    case 4:
+                        de = "JPY"; para = "BRL";
+                        break;
+                    case 5:
+                        de = "BOB"; para = "BRL";
+                        break;
+                    case 6:
+                        de = "VES"; para = "BRL";
+                        break;
+                }
+
+                try {
+                    double taxa = conversor.buscarConversao(de, para);
+                    double resultado = valor * taxa;
+
+                    System.out.printf("A taxa atual de " + de + " para " + para + " é: " + taxa);
+                    System.out.printf("\nValor convertido: " + resultado + "\n");
+                } catch (Exception e) {
+                    System.out.println("Erro: " + e.getMessage());
+                }
+
+            } else if (opcao == 7) {
+                System.out.println("Encerrando o programa");
+            }else {
+                System.out.println("Opção inválida");
+            }
         }
-
-        System.out.println("******************************************");
     }
 }
