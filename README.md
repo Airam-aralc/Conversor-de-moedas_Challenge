@@ -38,8 +38,8 @@ A minha APYKEY foi omitida por questão de segurança.
 
 **📹 VÍDEOS DE DEMONSTRAÇÃO DO CÓDIGO**
 
-Apresentação do código: https://www.dropbox.com/t/nsD7kdcBwmv2TEli
+Apresentação do código: https://www.dropbox.com/t/CU66qnuGdHovd91w
 
-Funcionamento do programa: https://www.dropbox.com/t/CU66qnuGdHovd91w
+Funcionamento do programa: https://www.dropbox.com/t/nsD7kdcBwmv2TEli
 
 Demonstração de erro para código inválido: https://www.dropbox.com/t/bRsZabsqvHncKhMm
