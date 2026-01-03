@@ -30,6 +30,12 @@ HttpClient: Para realizar requisições HTTP assíncronas e síncronas.
 
 ExchangeRate-API: Fonte dos dados econômicos.
 
+TRELLO: Ferramenta visual de gestão de projetos e tarefas, baseada no método Kanban. Ele foi utilizado para organização de todas as etapas necessárias para a conclusão do desafio.
+
+<p align="center">
+<img width="1909" height="912" alt="Captura de tela 2026-01-03 151513" src="https://github.com/user-attachments/assets/9bace35d-6e0a-4775-84d9-a7e31ebf555b" />
+</p>
+
 **🎃 INFORMAÇÃO IMPORTANTE ‼️**
 
 Para executar o projeto é necessário ter uma chave API, gerado no site: https://www.exchangerate-api.com
