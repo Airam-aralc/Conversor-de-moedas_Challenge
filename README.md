@@ -43,3 +43,8 @@ Apresentação do código: https://www.dropbox.com/t/CU66qnuGdHovd91w
 Funcionamento do programa: https://www.dropbox.com/t/nsD7kdcBwmv2TEli
 
 Demonstração de erro para código inválido: https://www.dropbox.com/t/bRsZabsqvHncKhMm
+
+**⭐⭐BADGE ORACLE⭐⭐**
+<p align="center">
+  <img width="500" height="500" alt="Badge-Conversor" src="https://github.com/user-attachments/assets/02b1010a-6715-4b10-bbc7-fbc4b340f233" />
+</p>
