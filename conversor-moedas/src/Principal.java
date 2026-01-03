@@ -1,42 +1,33 @@
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.util.Scanner;
 
 public class Principal {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
+        Scanner leitura = new Scanner(System.in);
+        Conversor conversor = new Conversor();
 
-        String url = "https://v6.exchangerate-api.com/v6/";
-        String chave = "";
-        String url_extra = "/pair/";
-        String moeda1 = "USD";
-        String moeda2 = "BRL";
+        System.out.println("******************************************");
+        System.out.println("Bem-vindo ao Conversor de Moedas!");
+        System.out.println("Exemplo: Converter de USD para BRL");
 
-        String urlFinal = url + chave + url_extra + moeda1 + "/" + moeda2;
+        System.out.println("Digite a moeda de origem (ex: USD):");
+        String moeda1 = leitura.next().toUpperCase();
 
-        HttpClient client = HttpClient.newHttpClient(); //Criação do cliente
-        HttpRequest request = HttpRequest.newBuilder() //requisição
-                .uri(URI.create(urlFinal))
-                .GET()
-                .build();
+        System.out.println("Digite a moeda de destino (ex: BRL):");
+        String moeda2 = leitura.next().toUpperCase();
 
-        HttpResponse<String> response = client
-                    .send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println("Qual valor deseja converter?");
+        double valor = leitura.nextDouble();
 
-        //Conversão para Json
-        JsonElement elemento = JsonParser.parseString(response.body());
-        JsonObject objectRoot = elemento.getAsJsonObject();
+        try {
+            double taxa = conversor.buscarConversao(moeda1, moeda2);
+            double resultado = valor * taxa;
 
-        double taxaDeConversao = objectRoot.get("conversion_rate").getAsDouble();
-        double valorUSD = 50;
+            System.out.printf("A taxa atual de %s para %s é: %.4f%n", moeda1, moeda2, taxa);
+            System.out.printf("Valor convertido: %.2f %s%n", resultado, moeda2);
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
 
-        double resultado = valorUSD * taxaDeConversao;
-        System.out.println(taxaDeConversao);
-        System.out.println(resultado);
+        System.out.println("******************************************");
     }
 }
